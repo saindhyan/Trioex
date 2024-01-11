@@ -1,0 +1,97 @@
+<html>
+<style>
+body{
+background-size:180%;
+}
+</style>
+<br />
+
+
+<table align="center"width="1330px"height="20px"bgcolor="#4AC7FD"><tr></tr></table><br />
+<table width="1300px"align="center">
+
+
+<table align="center"width="1330px"height="20px"bgcolor="#4AC7FD"><tr></tr></table><br />
+<br /><br />
+<br /><br />
+
+
+
+
+
+<center>
+<table width="1300px"height="600px">
+<tr>
+<td width="900px">
+
+
+<table cellspacing="20px"height="500px"bordercolor="#4AC7FD">
+<tr><th colspan="6"align="left"bgcolor="#4AC7FD"height="50px"><font size="4">&nbsp;&nbsp;PERSONAL &nbsp;&nbsp;DETAIL</font></th></tr>
+<?php
+session_start();
+include('config.php');
+
+ $link=@mysqli_connect(HOST,USER,PASSWORD)or Die("<font color='red'>Server not connected!!!</font>");
+    mysqli_select_db($link,DATABASE)or die("<font color='red'>Database not connected!!!</font>");                                                                                                                                                
+    $select="select *from faculty where firstname='seema'";
+    $rs=@mysqli_query($link,$select)or Die("<font color='red'>Query problem</font>");
+    if($row=mysqli_fetch_row($rs))
+    {
+        ?>
+<form method="post" enctype="multipart/form-data">
+
+<tr>
+<td><b>Full Name:-</b></td><td><input type="text" name="fname" value="<?php echo $row['0'];?>"/></td>
+
+</tr>
+<tr><td colspan="6"><hr color="#256f5C"align="center"></hr></td></tr>
+<tr>
+<th width="200px"align="right">Password:-</th><td width="200px"align="right"><input type="password"name="pass" value="<?php echo $row['6'];?>"/>
+</tr>
+
+<tr>
+<th width="200px"align="right">Email ID:-</th><td width="200px"align="right"><input type="text"name="email" value="<?php echo $row['8'];?>"/>
+<th width="200px"align="right">Phone:-</th><td width="200px"align="right"><input type="text"name="email" value="<?php echo $row['8'];?>"/>
+</tr>
+
+
+
+<tr><td colspan="6"><hr color="#4AC7FD"align="center"></hr></td></tr>
+<tr><td><input type="submit" name="submit" />&nbsp;&nbsp;
+<input type="reset" name="reset" /></td></tr>
+
+</table>
+
+</td>
+</tr>
+<tr><td colspan="6"align="right"><font color="red">Field marked with * are required</font></td></tr>
+</table>
+</center>
+<?php
+} 
+if(isset($_POST['submit']))
+{
+    $s=$_FILES['img']['tmp_name'];
+    $d=$_SERVER['DOCUMENT_ROOT']."knk/image/".$_POST['fid'].".jpg";
+    $img="";
+    if(move_uploaded_file($s,$d))
+    {
+        $img="./image/".$_POST['fid'].".jpg";
+    }
+    $s=$_FILES['resume']['tmp_name'];
+    $d=$_SERVER['DOCUMENT_ROOT']."knk/resume/".$_POST['fid'].".txt";
+    $resume="";
+    if(move_uploaded_file($s,$d))
+    {
+        $resume="./resume/".$_POST['fid'].".txt";
+    }
+    $update="update faculty set firstname='$_POST[fname]',middlename='$_POST[mname]',lastname='$_POST[lname]',category='$_POST[category]',joiningdate='$_POST[joining]',facultyid=$_POST[fid],password='$_POST[pass]',session=$_POST[session],emailid='$_POST[email]',department='$_POST[department]',designation='$_POST[desig]',state='$_POST[lno]',city='$_POST[city]',qualification='$_POST[qualification]',addionaltraining='$_POST[training]',contact='$_POST[contact]',address='$_POST[address]',gender='$_POST[gen]',nationality='$_POST[nation]',dob='$_POST[date]',salary='$_POST[salary]',resume='$resume',image='$img' where facultyid='$_POST[fid]'";
+    $row1=mysql_query($update) or Die('query problem');
+    if(mysql_affected_rows()>0)
+    {
+        echo ("<font color='green'>Thank you for Updation!!!!!</font>");
+    }
+}
+
+?> 
+

@@ -1,0 +1,161 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #c7d2d6;
+}
+
+#startup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.startup-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2% 47.8%;
+    background-image: url(/image/header-bg.svg);
+}
+
+@media only screen and (max-width: 600px) {
+    .startup-heading {
+        padding: 2% 40%;
+    }
+}
+
+.startup-heading h3 {
+    color: #262726;
+}
+
+.startup-heading h3 {
+    font-size: 2.4rem;
+    font-weight: 600;
+}
+
+.startup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -2px 0px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.startup-box {
+    width: 70%;
+    background-color: rgb(241, 234, 238);
+    border: 2px solid #bab6b6;
+    box-shadow: 5px 10px #d7d7d7;
+    margin: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    .startup-box {
+        width: 95%;
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .gimg {
+        position: absolute;
+        margin-right: 10%;
+    }
+}
+
+.startup-text {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.startup-text h3 {
+    color: #f33c3c;
+    font-size: 0.9rem;
+}
+
+.startup-text .startup-title {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #272727;
+}
+
+.startup-text .startup-title:hover {
+    color: #f33c3c;
+    transition: all ease 0.3s;
+}
+
+.startup-text p {
+    color: #7f7c7c;
+    font-size: 1rem;
+}
+
+.startuptext a {
+    color: #0f0f0f;
+}
+
+.startuptext a:hover {
+    color: #f33c3c;
+    transition: all ease 0.3s;
+}
+
+.si {
+    margin: 3% 7% 2% 24%;
+    border: 2px solid black;
+    box-shadow: 12px 12px #d1c1cb;
+    border-radius: 57px;
+}
+
+.btn {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.btn1 {
+    border: 3px solid #95b8d7;
+    border-radius: 32px;
+    padding: 12px;
+    background-color: #1CD6CE;
+    color: #293462;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.subtext {
+    margin: 0% 1% 2% 0%;
+}
